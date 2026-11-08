@@ -9,19 +9,16 @@
     /* ---------- Design tokens: change these to restyle the whole site ---------- */
     :root {
       --bg: #ffffff;
-      --bg-alt: #f8f5ff;
+      --bg-alt: #f5f5f7;
       --text: #1d1d1f;
-      --muted: #5c5470;
-      --accent: #c026d3;          /* magenta stand-in; rainbow used on accents */
-      --line: #e4d4f4;
-      --media: #efe8ff;
+      --muted: #6e6e73;
+      --accent: #bb0000;          /* one accent color (Ohio State scarlet) */
+      --line: #d2d2d7;
+      --media: #e8e8ed;
       --radius: 18px;
       --max: 1080px;
       --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      --rainbow: linear-gradient(90deg, #ff003c, #ff7a00, #ffd400, #00c853, #00b0ff, #7c4dff, #ff003c);
-      --rainbow-soft: linear-gradient(135deg, rgba(255,0,60,0.12), rgba(255,122,0,0.10), rgba(255,212,0,0.10), rgba(0,200,83,0.10), rgba(0,176,255,0.10), rgba(124,77,255,0.12));
     }
-
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -42,33 +39,24 @@
       background: rgba(255,255,255,0.8);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 3px solid transparent;
-      border-image: var(--rainbow) 1;
-      border-image-slice: 1;
+      border-bottom: 2px solid var(--accent);  /* scarlet header line */
     }
     .nav-inner {
       max-width: var(--max); margin: 0 auto; padding: 14px 24px;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .nav-name {
-      font-weight: 600;
-      background: var(--rainbow); background-size: 200% auto;
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .nav-name:hover { text-decoration: none; }
+    .nav-name { font-weight: 600; color: var(--text); }
     .nav-links { display: flex; gap: 28px; list-style: none; font-size: 14px; }
     .nav-links a { color: var(--text); opacity: 0.8; }
     .nav-links a:hover { opacity: 1; text-decoration: none; }
 
     /* ---------- Sections (one idea each) ---------- */
     .section { padding: 140px 24px; }
-    .section.alt { background: var(--bg-alt); background-image: var(--rainbow-soft); }
+    .section.alt { background: var(--bg-alt); }
     .container { max-width: var(--max); margin: 0 auto; }
     .eyebrow {
       font-size: 14px; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; margin-bottom: 16px;
-      background: var(--rainbow); background-size: 200% auto;
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
     }
     h1, h2 { font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
     h1 { font-size: clamp(48px, 9vw, 96px); }
@@ -121,25 +109,21 @@
     .flip:hover .flip-hint, .flip:focus-visible .flip-hint { opacity: 1; transform: translate(-50%, 0); }
     .flip-back {
       transform: rotateY(180deg);
-      background: var(--bg-alt); border-top: 4px solid transparent; border-image: var(--rainbow) 1;
+      background: var(--bg-alt); border-top: 4px solid var(--accent);
       padding: 22px 20px; display: flex; flex-direction: column; justify-content: center;
     }
-    .flip-back h3 {
-      margin: 0 0 10px; font-size: 18px;
-      background: var(--rainbow); background-size: 200% auto;
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
+    .flip-back h3 { margin: 0 0 10px; font-size: 18px; color: var(--accent); }
     .flip-back p { font-size: 13px; line-height: 1.5; color: var(--text); }
     .btn {
       display: inline-block; padding: 14px 28px; border-radius: 980px;
       color: #fff; font-weight: 500;
-      background: var(--rainbow);  /* full rainbow sweep */
+      background: linear-gradient(90deg, #bb0000, #e0343a, #8a0000, #bb0000);  /* scarlet gradient sweep */
       background-size: 300% auto; background-position: 0% center;
       transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, background-position 0.6s ease;
     }
     .btn:hover {
       text-decoration: none; transform: translateY(-2px);
-      box-shadow: 0 10px 24px -8px rgba(124,77,255,0.45);
+      box-shadow: 0 10px 24px -8px rgba(187,0,0,0.5);
       background-position: 100% center;
     }
 
@@ -192,25 +176,6 @@
     }
     .links a span { color: var(--muted); font-size: 15px; font-weight: 400; }
     .links a:hover { text-decoration: none; color: var(--accent); }
-
-    /* ---------- Rainbow extras ---------- */
-    h1, h2 {
-      background: var(--rainbow); background-size: 220% auto;
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    a { background: var(--rainbow); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; }
-    a:hover { filter: brightness(1.08); }
-    .nav-links a {
-      background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--text);
-    }
-    .btn, .btn:hover {
-      -webkit-background-clip: border-box; background-clip: border-box; color: #fff;
-    }
-    .ss-btn:hover { color: #c026d3; }
-    footer {
-      border-top: 3px solid transparent;
-      border-image: var(--rainbow) 1;
-    }
 
     /* ---------- Footer ---------- */
     footer { padding: 48px 24px; text-align: center; color: var(--muted); font-size: 13px; }
